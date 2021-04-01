@@ -1,0 +1,89 @@
+image: docker:stable
+
+variables:
+  CONTAINER_NAME_BASE: 'andreclaudino'
+
+stages:
+  - base
+  - tensorflow
+  - service
+  - rust-dev
+  - deployments
+  - ide
+
+.build_base: &build_base
+  when: manual
+  script:
+    - cd ${IMAGE_NAME}/${IMAGE_TAG}
+    - docker build . -t ${CONTAINER_NAME_BASE}/${IMAGE_NAME}:${IMAGE_TAG}
+    - docker push ${CONTAINER_NAME_BASE}/${IMAGE_NAME}:${IMAGE_TAG}
+
+cuda-custom-11-py3.7:
+  <<: *build_base
+  stage: base
+  variables:
+    IMAGE_NAME: cuda-custom
+    IMAGE_TAG: 11-py3.7
+
+tensorflow-gpu-2.1.0-py3.7:
+  <<: *build_base
+  stage: tensorflow
+  variables:
+    IMAGE_NAME: tensorflow-gpu
+    IMAGE_TAG: 2.1.0-py3.7
+
+tensorflow-gpu:2.1.0-py3.7v2:
+  <<: *build_base
+  stage: tensorflow
+  variables:
+    IMAGE_NAME: tensorflow-gpu
+    IMAGE_TAG: 2.1.0-py3.7v2
+
+tensorflow-gpu-2.2.0-py3.7:
+  <<: *build_base
+  stage: tensorflow
+  variables:
+    IMAGE_NAME: tensorflow-gpu
+    IMAGE_TAG: 2.2.0-py3.7
+
+tensorflow-gpu-2.3.1-py3.7:
+  <<: *build_base
+  stage: tensorflow
+  variables:
+    IMAGE_NAME: tensorflow-gpu
+    IMAGE_TAG: 2.3.1-py3.7
+
+tensorflow-gpu-2.4.0-py3.8:
+  <<: *build_base
+  stage: tensorflow
+  variables:
+    IMAGE_NAME: tensorflow-gpu
+    IMAGE_TAG: 2.4.0-py3.8
+
+python-service-3.7.3-1.0.0:
+  <<: *build_base
+  stage: service
+  variables:
+    IMAGE_NAME: python-service
+    IMAGE_TAG: 3.7.3-1.0.0
+
+rust-build-1.48-1.0.0:
+  <<: *build_base
+  stage: rust-dev
+  variables:
+    IMAGE_NAME: rust-build
+    IMAGE_TAG: 1.48-1.0.0
+
+helm-deploy-3.5.0-1.0:
+  <<: *build_base
+  stage: deployments
+  variables:
+    IMAGE_NAME: helm-deploy
+    IMAGE_TAG: 3.5.0-1.0
+
+python-ide-1.7.0-1.0:
+  <<: *build_base
+  stage: deployments
+  variables:
+    IMAGE_NAME: python-ide
+    IMAGE_TAG: 1.7.0-1.0
