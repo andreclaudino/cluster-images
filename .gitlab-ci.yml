@@ -60,6 +60,13 @@ tensorflow-gpu-2.4.0-py3.8:
     IMAGE_NAME: tensorflow-gpu
     IMAGE_TAG: 2.4.0-py3.8
 
+tensorflow-bert-2.6.0-gpu-bert-wiki40b-lm-ml-128k:
+  <<: *build_base
+  stage: tensorflow-bert
+  variables:
+    IMAGE_NAME: tensorflow-bert
+    IMAGE_TAG: 2.6.0-gpu-bert-wiki40b-lm-ml-128k
+
 python-service-3.7.3-1.0.0:
   <<: *build_base
   stage: service
