@@ -62,7 +62,7 @@ tensorflow-gpu-2.4.0-py3.8:
 
 tensorflow-bert-2.6.0-gpu-bert-wiki40b-lm-ml-128k:
   <<: *build_base
-  stage: tensorflow-bert
+  stage: tensorflow
   variables:
     IMAGE_NAME: tensorflow-bert
     IMAGE_TAG: 2.6.0-gpu-bert-wiki40b-lm-ml-128k
