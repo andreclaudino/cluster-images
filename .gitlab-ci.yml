@@ -12,6 +12,7 @@ stages:
   - ide
 
 .build_base: &build_base
+  image: docker:stable
   when: manual
   script:
     - cd ${IMAGE_NAME}/${IMAGE_TAG}
