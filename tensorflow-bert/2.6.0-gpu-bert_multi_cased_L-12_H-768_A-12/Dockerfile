@@ -1,6 +1,6 @@
 FROM tensorflow/tensorflow:2.6.0-gpu
 
-# andreclaudino/tensorflow-bert:bert_multi_cased_L-12_H-768_A-12
+# andreclaudino/tensorflow-bert:2.6.0-gpu-bert_multi_cased_L-12_H-768_A-12
 
 LABEL maintainer "André Claudino <claudino@d2x.com.br>"
 LABEL bert_model "bert_multi_cased_L-12_H-768_A-12"
