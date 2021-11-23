@@ -82,6 +82,20 @@ tensorflow-bert-2.7.0-gpu-bert_multi_cased_L-12_H-768_A-12:
     IMAGE_NAME: tensorflow-bert
     IMAGE_TAG: 2.7.0-gpu-bert_multi_cased_L-12_H-768_A-12
 
+tensorflow-bert-2.7.0-bert_multi_cased_L-12_H-768_A-12:
+  <<: *build_base
+  stage: tensorflow
+  variables:
+    IMAGE_NAME: tensorflow-bert
+    IMAGE_TAG: 2.7.0-bert_multi_cased_L-12_H-768_A-12
+
+tensorflow-bert-2.7.0-small-bert_en_uncased_L-2_H-128_A-2:
+  <<: *build_base
+  stage: tensorflow
+  variables:
+    IMAGE_NAME: tensorflow-bert
+    IMAGE_TAG: 2.7.0-small-bert_en_uncased_L-2_H-128_A-2
+
 python-service-3.7.3-1.0.0:
   <<: *build_base
   stage: service
