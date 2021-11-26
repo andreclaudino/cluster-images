@@ -96,6 +96,13 @@ tensorflow-bert-2.7.0-small-bert_en_uncased_L-2_H-128_A-2:
     IMAGE_NAME: tensorflow-bert
     IMAGE_TAG: 2.7.0-small-bert_en_uncased_L-2_H-128_A-2
 
+andreclaudino/tensorflow-autokeras-ak-1.0.16.post1-tf-2.5.0-gpu:
+  <<: *build_base
+  stage: tensorflow
+  variables:
+    IMAGE_NAME: andreclaudino/tensorflow-autokeras
+    IMAGE_TAG: ak-1.0.16.post1-tf-2.5.0-gpu
+
 python-service-3.7.3-1.0.0:
   <<: *build_base
   stage: service
